@@ -9,7 +9,7 @@ export default function initAnimaNumeros() {
 
       let start = 0;
       const timer = setInterval(() => {
-        start = start + incremento;
+        start += incremento;
         item.innerText = start;
         if (start > total) {
           item.innerText = total;
