@@ -1,0 +1,14 @@
+.tooltip{
+  /* obviamente posicionamento absolute para caixa ficar livre porem pra caixa acompanhar o mouse devemos saber a posicao do mouse exato para a caixa acompnhar, pra isso usamos o js para o posicionamento com base no mouse */
+  position: absolute; 
+  z-index: 500;
+  background: rgba(0, 0, 0, .6);
+  box-shadow: 0 0 0 2px #FB5, 0 0 0 6PX rgba(0, 0, 0, .6);
+  padding: .5rem;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+  font-size:  .875rem;
+  max-width: 170px;
+  border-radius: 2px;
+}
