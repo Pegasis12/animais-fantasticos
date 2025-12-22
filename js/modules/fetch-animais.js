@@ -14,7 +14,6 @@ export default function initFetchAnimais() {
       });
       initAnimaNumeros(); //executando a aniamcao depois do fetch, o fech conclui ai sim ele é executado
     } catch (erro) {
-      console.log(erro);
     }
   }
 
