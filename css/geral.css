@@ -8,18 +8,6 @@ img {
   max-width: 100%;
 }
 
-html.textomaior{
-  font-size: 150%;
-}
-
-.azul{
-  background-color: blue;
-}
-
-.vermelho{
-  background-color: red;
-}
-
 ul {
   list-style: none;
 }
@@ -30,7 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.grid-container{
+.grid-container {
   display: grid;
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
@@ -48,8 +36,7 @@ body {
   padding: 10px;
 }
 
-/* troquei o padding para o scrpt interpretar boa acessibilidade */
-.menu li a { 
+.menu li a {
   display: block;
   padding: 10px;
   margin-right: 10px;
@@ -112,7 +99,7 @@ body {
   grid-column: 2;
 }
 
-.animais-lista li{
+.animais-lista li {
   cursor: pointer;
 }
 
@@ -227,110 +214,102 @@ body {
   }
 }
 
-/* sectiob começa com hidden */
-.js [data-tab='content'] section{ 
+.js [data-tab="content"] section {
   display: none;
 }
 
-/* quando a section conter a classe de ativo ela fica block */
-[data-tab='content'] section.ativo{
+[data-tab="content"] section.ativo {
   display: block !important;
 }
 
-[data-tab='content'] section.ativo.show-right{
+[data-tab="content"] section.ativo.show-right {
   animation: show-right .5s forwards;
 }
 
-[data-tab='content'] section.ativo.show-down{
-  /* forwards manten a animacao no estado final de to */
+[data-tab="content"] section.ativo.show-down {
   animation: show-down .5s forwards;
 }
 
-@keyframes show-right{
-  from{
+@keyframes show-right {
+  from {
     opacity: 0;
-    /* movimenta o elemento no eixo x y e z */
     transform: translate3d(-30px, 0, 0);
-  } 
-  to{
+  }
+  to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
-@keyframes show-down{
-  from{
+@keyframes show-down {
+  from {
     opacity: 0;
-    /* movimenta o elemento no eixo x y e z */
     transform: translate3d(0, -30px, 0);
-  } 
-  to{
+  }
+  to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
-
-.js [data-anime="accordion"] dd{
+.js [data-anime="accordion"] dd {
   display: none;
 }
 
-[data-anime="accordion"] dt::after{
+[data-anime="accordion"] dt::after {
+  content: '⬎';
   margin-left: 10px;
-  content: "▼";
 }
 
-[data-anime="accordion"] dt.ativo::after{
-  content: "▲";
+[data-anime="accordion"] dt.ativo::after {
+  content: '⬏';
 }
 
-[data-anime="accordion"] dd.ativo{
+[data-anime="accordion"] dd.ativo {
   display: block;
   animation: slideDown .5s forwards;
 }
 
-@keyframes slideDown{
-  from{
+@keyframes slideDown {
+  from {
     opacity: 0;
     max-height: 0;
   }
-
-  to{
-    opacity: 1;
+  to {
     max-height: 200px;
+    opacity: 1;
   }
 }
 
-.js [data-anime='scroll']{
+.js [data-anime="scroll"] {
   opacity: 0;
   transform: translate3d(-30px, 0, 0);
   transition: .3s;
 }
 
-.js [data-anime='scroll'].ativo{
+.js [data-anime="scroll"].ativo {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  transition: .3s;
 }
 
-[data-semana]::after{
-  content: "";
+[data-semana]::after {
   display: inline-block;
-  border-radius: 50%;
+  content: '';
   width: 6px;
   height: 6px;
-  background: red;
-  border: 2px solid black;
+  background: #E54;
+  border-radius: 50%;
   margin-left: 4px;
+  border: 2px solid #000;
 }
 
-[data-semana].aberto::after{
-  background: #3f4;
+[data-semana].aberto::after {
+  background: #3F4;
 }
 
-.btc-preco{
-  background: #3f4;
+.btc-preco {
+  background: #3F4;
   padding: .2rem .5rem;
   font-weight: bold;
-  border-radius: 2px;
+  border-radius: 2px;  
 }
