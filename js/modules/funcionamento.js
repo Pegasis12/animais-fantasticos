@@ -2,20 +2,23 @@ export default function initFuncionamento() {
   // o objetivo do script é comparar a data e hora do cliente pra saber se estamos fechados ou abertos, caso esteja fechado vai atribuir uma classe a uma bolinha em que ela vai ficar vermelha, cso esteja aberto a classe atribuida sera verde
 
   const funcionamento = document.querySelector('[data-semana]');
-  //Me retorna uma string do conteudo dentro do data-semana, para compara tenho q transformar em array, pra isso do split em (,) porem ainda n acabou pois ele me retorna a array com string, e quero number, pra isso podemos interagir com map, lembrando q ele intera na array e retorna uma array nova modificada, diferente do foreach
-  const diasSemana = funcionamento.dataset.semana.split(',').map(Number); //macetinho se passar number dentro de map ele ja me reotrna number a array
-  const horariosSemana = funcionamento.dataset.horario.split(',').map(Number); //pega o horario dentro de data-horario
 
-  const dataAgora = new Date();
-  const diaAgora = dataAgora.getDay();
-  const horarioAgora = dataAgora.getHours(); //pega exatamente o horario de agora
+  if (funcionamento) {
+    //Me retorna uma string do conteudo dentro do data-semana, para compara tenho q transformar em array, pra isso do split em (,) porem ainda n acabou pois ele me retorna a array com string, e quero number, pra isso podemos interagir com map, lembrando q ele intera na array e retorna uma array nova modificada, diferente do foreach
+    const diasSemana = funcionamento.dataset.semana.split(',').map(Number); //macetinho se passar number dentro de map ele ja me reotrna number a array
+    const horariosSemana = funcionamento.dataset.horario.split(',').map(Number); //pega o horario dentro de data-horario
 
-  const semanaAberto = diasSemana.indexOf(diaAgora) !== -1; //Se for diferente de menos 1 é verdadeiro. A expressão me retorna onde esta o index na array exemplo, hoje é dia 4 os dias que tem dentro de dias semana são [1,2,3,4,5] ele vai verificar onde meu dia de hoje esta na array, no caso na posição 3 do array que é 4, caso n encontre me retorna -1
-  const horarioAberto =
-    horarioAgora >= horariosSemana[0] && horarioAgora < horariosSemana[1]; //verifica se o horario de agora é maior que 8 e menor q 18
+    const dataAgora = new Date();
+    const diaAgora = dataAgora.getDay();
+    const horarioAgora = dataAgora.getHours(); //pega exatamente o horario de agora
 
-  if (semanaAberto && horarioAberto) {
-    funcionamento.classList.add('aberto');
+    const semanaAberto = diasSemana.indexOf(diaAgora) !== -1; //Se for diferente de menos 1 é verdadeiro. A expressão me retorna onde esta o index na array exemplo, hoje é dia 4 os dias que tem dentro de dias semana são [1,2,3,4,5] ele vai verificar onde meu dia de hoje esta na array, no caso na posição 3 do array que é 4, caso n encontre me retorna -1
+    const horarioAberto =
+      horarioAgora >= horariosSemana[0] && horarioAgora < horariosSemana[1]; //verifica se o horario de agora é maior que 8 e menor q 18
+
+    if (semanaAberto && horarioAberto) {
+      funcionamento.classList.add('aberto');
+    }
   }
 }
 // // new Date()
