@@ -1,19 +1,27 @@
-export default function initAccordion() {
-  const accordionList = document.querySelectorAll(
-    "[data-anime='accordion'] dt",
-  ); //selecionei o dt dentro da classe
-
-  function activeAccordion() {
-    this.classList.toggle('ativo'); //ativo no d tbm pra troca de cetinha no css
-    this.nextElementSibling.classList.toggle('ativo'); //ja que o proximo elemento de dt é dd ele add a classe de ativo nele ao ser clicado, usei this ao invez do event.currentTarget
+export default class Accordion {
+  constructor(list) {
+    this.accordionList = document.querySelectorAll(list); //selecionei o dt dentro da classe
+    this.activeClass = 'ativo';
   }
 
-  if (accordionList.length) {
-    accordionList[0].classList.add('ativo'); //atribuindo na primeira dt a classe de ativo pra o preiro elemento começar com a ceta pra cima
-    accordionList[0].nextElementSibling.classList.add('ativo'); //atribuindo no primeiro dd de dt a classe de ativo pra começar aberto
+  toggleAccordion(item) {
+    item.classList.toggle(this.activeClass); //ativo no d tbm pra troca de cetinha no css
+    item.nextElementSibling.classList.toggle(this.activeClass); //ja que o proximo elemento de dt é dd ele add a classe de ativo nele ao ser clicado, usei this ao invez do event.currentTarget
+  }
 
-    accordionList.forEach((item) => {
-      item.addEventListener('click', activeAccordion);
+  //add os eventos ao accordion
+  addAccordionEvent() {
+    this.accordionList.forEach((item) => {
+      item.addEventListener('click', () => this.toggleAccordion(item));
     });
+  }
+
+  //iniciar funcao
+  init() {
+    if (this.accordionList.length) {
+      //ativar primeiro item
+      this.toggleAccordion(this.accordionList[0]);
+      this.addAccordionEvent();
+    }
   }
 }
