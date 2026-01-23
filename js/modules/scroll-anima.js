@@ -1,9 +1,12 @@
+import debounce from './debounce.js';
+
 export default class ScrollAnima {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections);
     this.windowMetade = window.innerHeight * 0.6; //pega a altura da tela e multiplica por 0,6 pra pega pelo menos 60% da tela
 
-    this.checkDistance = this.checkDistance.bind(this);
+    // podemos passar o debounce diretamente no bind
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
   }
 
   //captura a distancia do top de cada sectione retonna um objeto com o elemento e a distancia offsetTop
