@@ -7,7 +7,7 @@
 }
 
 [data-dropdown]:hover .dropdown-menu,
-[data-dropdown].active .dropdown-menu {
+[data-dropdown].ativo .dropdown-menu {
   display: block;
   animation: show-up .3s forwards;
 }
