@@ -13,6 +13,8 @@ export default class MenuMobile {
   }
 
   openMenu(event) {
+    //previnir o padrão de touchstart, se n previnir ele add o evento de clique ocasionando num double click e fazendo com que o menu abra e fecha
+    event.preventDefault();
     this.menuList.classList.add(this.activeClass);
     this.menuButton.classList.add(this.activeClass);
     outsideClick(this.menuList, this.events, () => {
